@@ -8,7 +8,7 @@ private:
 	//private functions
 
 public:
-	//con and des
+	//constructor and destructor
 	game();
 	~game();
 
