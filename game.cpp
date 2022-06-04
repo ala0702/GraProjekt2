@@ -59,6 +59,7 @@ void game::render()
 
 	//DRAWING OBJECTS
 
+	this->Player.render(this->window);
 	//END OF DRAWING
 
 	this->window->display();

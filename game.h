@@ -3,6 +3,8 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "player.h"
+
 class game
 {
 private:
@@ -10,6 +12,9 @@ private:
 	sf::VideoMode vm; //holds the information about height and wight of the window
 	sf::RenderWindow* window; //
 	sf::Event event; //
+
+	//player
+	player Player;
 
 	//private functions (initialize things)
 	void initiateWindow();
