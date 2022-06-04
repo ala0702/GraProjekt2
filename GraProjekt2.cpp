@@ -1,4 +1,5 @@
 ﻿#include "game.h"
+#include "Menu.h"
 
 using namespace std;
 using namespace sf;
@@ -8,6 +9,7 @@ int main()
 	RenderWindow window(VideoMode(200, 200), "SFML works!");
 	//CircleShape shape(100.f);
 	//shape.setFillColor(Color::Green);
+	Menu menu(window.getSize().x, window.getSize().y);
 
 	while (window.isOpen())
 	{
@@ -21,6 +23,7 @@ int main()
 		}
 
 		window.clear();
+		menu.draw(window);
 		//window.draw(shape);
 		window.display();
 	}
