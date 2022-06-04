@@ -1,13 +1,12 @@
-﻿#include <iostream>
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
+﻿
+#include "game.h"
 
 using namespace std;
 using namespace sf;
 
 int main()
 {
-	RenderWindow window(VideoMode(200, 200), "SFML works!");
+	/*RenderWindow window(VideoMode(200, 200), "SFML works!");
 	CircleShape shape(100.f);
 	shape.setFillColor(Color::Green);
 
@@ -25,7 +24,10 @@ int main()
 		window.clear();
 		window.draw(shape);
 		window.display();
-	}
+	}*/
+
+	game game;
+	game.running();
 
 	return 0;
 }
