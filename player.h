@@ -7,12 +7,10 @@
 class player
 {
 private:
-	sf::RectangleShape Rshape;
+	//sf::RectangleShape Rshape;
 
 	//variables
 	float movementSpeed; //how fast the player moves / how much the player will move
-
-
 
 	//private functions
 
@@ -22,9 +20,14 @@ private:
 
 
 public:
+
+	sf::RectangleShape Rshape;
+
 	//constructor and destructor
 	player();
 	~player();
+
+
 
 	void updateInput();  // we move the player
 	void updateCollision(sf::RenderTarget* target);
@@ -32,6 +35,7 @@ public:
 	//main update and render 
 	void update(sf::RenderTarget* target);
 	void render(sf::RenderTarget* target);
+
 
 
 };
