@@ -18,17 +18,34 @@ void game::initiateFriendShape()
 	this->FriendShape.setOutlineColor(sf::Color::Color(rand() % 150, rand() % 254, rand() % 240));
 }
 
+void game::ustawiniaCzcionki()
+{
+	if (this->font.loadFromFile("zasób/czcionki/AHDN.ttf"))
+	{
+		std::cout << "nie udalo sie pobrac czcionki" << std::endl;
+	}
+}
+
+void game::ustawieniaTekstu()
+{
+	this->text.setFont(this->font);  //nadajemy tekstowi czcionke aby wyswietlil sie na ekranie
+	this->text.setCharacterSize(40);
+	this->text.setLetterSpacing(2);
+	this->text.setFillColor(sf::Color::Color(230, 245, 50, 160));
+	this->text.setString("nic na razie");
+}
+
 void game::initiateVAriables()
 {
 	//logic
 	this->points = 0;
 	this->spawnTimerMaxEnemies = 30.f;
 	this->spawnTimerEnemies = this->spawnTimerMaxEnemies;
-	this->maxEnemies = 7;
+	this->maxEnemies = 10;
 	this->health = 10;
 	this->spawnTimerMaxFriends = 20.f;
 	this->spawnTimerFriends= this->spawnTimerMaxFriends;
-	this->maxFriends = 15;
+	this->maxFriends = 20;
 	
 	
 	
@@ -139,7 +156,7 @@ void game::spawnFriends(sf::RenderWindow* window)
 		Adds friends to the vector.
 	*/
 
-	this->FriendShape.setRadius(rand() % 5 + 5.f);
+	this->FriendShape.setRadius(rand() % 5 + 7.f);
 	this->FriendShape.setFillColor(sf::Color::Color(rand()%150, rand()%254, rand()%240));
 	this->FriendShape.setOutlineThickness(4);
 	
@@ -174,21 +191,21 @@ void game::updateFriends(sf::RenderWindow* window)
 		if(this->points<50)
 		friends[i].move(0.f, 3.f);
 		else if(this->points<100)
-		friends[i].move(0.f, 3.2);
+		friends[i].move(0.f, 3);
 		else if (this->points < 150)
 			friends[i].move(0.f, 3.4);
 		else if (this->points < 200)
 			friends[i].move(0.f, 3.6);
 		else if (this->points < 250)
-			friends[i].move(0.f, 3.8);
+			friends[i].move(0.f, 3);
 		else if (this->points < 300)
 			friends[i].move(0.f, 4.f);
 		else if (this->points < 350)
-			friends[i].move(0.f, 4.2);
+			friends[i].move(0.f, 3.2);
 		else if (this->points < 400)
-			friends[i].move(0.f, 4.4);
+			friends[i].move(0.f, 3.4);
 		else if (this->points < 450)
-			friends[i].move(0.f, 4.6);
+			friends[i].move(0.f, 3);
 		else
 			friends[i].move(0.f, 4.8);
 		//erase when touch the bottom of the window

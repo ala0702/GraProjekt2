@@ -22,6 +22,11 @@ private:
 	unsigned points;
 	int health;
 
+	
+	//resource *font*text*
+	sf::Font font;
+	sf::Text text;
+
 	//Circle shape enemies
 	sf::CircleShape EnemyShape;
 	std::vector<sf::CircleShape> enemies;
@@ -45,6 +50,9 @@ private:
 	void initiateWindow();
 	void initiateEnemyShape();
 	void initiateFriendShape();
+	void ustawiniaCzcionki();
+	void ustawieniaTekstu();
+
 
 
 public:
@@ -66,6 +74,10 @@ public:
 
 
 	//accessors
+
+	//text
+	void updateText();
+	void renderText();
 
 	//update
 	void pollEvent(); //checks events
