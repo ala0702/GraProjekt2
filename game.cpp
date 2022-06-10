@@ -20,7 +20,7 @@ void game::initiateFriendShape()
 
 void game::ustawiniaCzcionki()
 {
-	if (this->font.loadFromFile("zasób/czcionki/AHDN.ttf"))
+	if (this->font.loadFromFile("zasob/czcionki/menu.ttf"))
 	{
 		std::cout << "nie udalo sie pobrac czcionki" << std::endl;
 	}
