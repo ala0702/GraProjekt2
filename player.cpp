@@ -1,15 +1,14 @@
-#include "player.h"
-
+#include "Player.h"
 
 //private functions
 //variables
-void player::initVariables()
+void Player::initVariables()
 {
 	this->movementSpeed = 5.f;
 
 }
 //Rshape
-void player::initiateRshape()
+void Player::initiateRshape()
 {
 	this->Rshape.setFillColor(sf::Color::Color(200,50,200,170));
 	this->Rshape.setSize(sf::Vector2f(50.f, 50.f));
@@ -18,13 +17,13 @@ void player::initiateRshape()
 
 
 //constructor
-player::player()
+Player::Player()
 {
 	this->initiateRshape();
 	this->initVariables();
 }
 //descructor
-player::~player()
+Player::~Player()
 {
 }
 
@@ -32,7 +31,7 @@ player::~player()
 //public functions
 
 // * moving the player (left and right)
-void player::updateInput()
+void Player::updateInput()
 {
 	//key pressed
 	
@@ -41,6 +40,7 @@ void player::updateInput()
 	{
 		this->Rshape.move(-this->movementSpeed, 0.f);
 	}
+
 	//right
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
@@ -49,7 +49,7 @@ void player::updateInput()
 
 }
 
-void player::updateCollision(sf::RenderTarget* target)
+void Player::updateCollision(sf::RenderTarget* target)
 {
 	//left
 	if (this->Rshape.getGlobalBounds().left <= 0.f) //left - x lrfto corner, top- y  
@@ -67,13 +67,13 @@ void player::updateCollision(sf::RenderTarget* target)
 
 
 //MAIN update and render
-void player::update(sf::RenderTarget* target)
+void Player::update(sf::RenderTarget* target)
 {
 	this->updateInput();
 	this->updateCollision(target);
 }
 
-void player::render(sf::RenderTarget* target)
+void Player::render(sf::RenderTarget* target)
 {
 	target->draw(this->Rshape);
 }

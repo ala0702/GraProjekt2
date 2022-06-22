@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
+
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 
 
-class player
+class Player
 {
 private:
 	//sf::RectangleShape Rshape;
@@ -24,8 +25,8 @@ public:
 	sf::RectangleShape Rshape;
 
 	//constructor and destructor
-	player();
-	~player();
+	Player();
+	~Player();
 
 
 

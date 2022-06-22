@@ -10,18 +10,41 @@ class Menu
 {
 private:
 	//const int itemsNumber = 3;
-	int selectedItem;
 
+	friend class Game;
 
-	Font font;
-	Text menu[3];
+	Font fontMenu;
+	int selectedItem = 0;
+	
+	//private functions 
+	// *initiate things
+	void initiatevariables();
+	void initiatefont();
+	void initiatetext();
 
 public:
-	Menu(float width, float height);
+	
+	Text menu[3];
+	//destructor and constructor i guess
+	Menu();
 	~Menu();
 
-	void draw(RenderWindow& window);
-	void MoveUp();
-	void MoveDown();
-};
 
+	//public functions
+	//moving options
+	// *changes the color
+	void ColorMove();
+	
+	int getSelectedItem(int &selectedItem);
+
+	//poll events
+	void polleventsMenu();
+
+	//update
+	void updateMenu(sf::RenderWindow* window);
+
+
+	//render 
+	void drawMenu(sf::RenderWindow* window);
+
+};

@@ -1,31 +1,43 @@
 #pragma once
-#include <iostream>
 
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
 #include <vector>
-#include "Enemy.h"
-#include "player.h"
+#include "Player.h"
+#include "Menu.h"
+#include "Instruction.h"
+#include <ctime> 
+#include <sstream> // allows to make strings
 
-class game
+class Game :public Menu, public Instruction
 {
 private:
+
 	//window and event
 	sf::VideoMode vm; //holds the information about height and wight of the window
 	sf::RenderWindow* window; //
 	sf::Event event; //
 
+	//menu 
+	Menu menu;
+
+	//instruction
+	Instruction instruction;
+
+	
 	//player
-	player Player;
+	Player Player;
 
 	//logic of the game
 	unsigned points;
 	int health;
 
+	bool getLeaveGame;
+
 	
 	//resource *font*text*
 	sf::Font font;
+	sf::Font fontEndGame;
 	sf::Text text;
+	sf::Text textEndGame;
 
 	//Circle shape enemies
 	sf::CircleShape EnemyShape;
@@ -43,22 +55,22 @@ private:
 	float maxFriends; //maximum of enemies 
 
 
-	
-
 	//private functions (initialize things)
 	void initiateVAriables();
 	void initiateWindow();
 	void initiateEnemyShape();
 	void initiateFriendShape();
 	void ustawiniaCzcionki();
+	void initiateFontEndGame();
+	void initiateTextEndGame();
 	void ustawieniaTekstu();
 
 
 
 public:
 	//constructor and destructor
-	game();
-	~game();
+	Game();
+	~Game();
 
 
 	//enemies functions
@@ -77,17 +89,27 @@ public:
 
 	//text
 	void updateText();
-	void renderText();
+	void renderText(sf::RenderTarget* target);
+
+	void updateTextEndGame();
 
 	//update
 	void pollEvent(); //checks events
+
+	//function that erase left objects
+	void eraseObjectEndGame();
 
 	//main update and render
 	void update();
 	void render();
 
-	//main runnning game, engine;))
+	//main runnning game
+	void pollEventAfterGame();
 	void running();
 
-};
 
+	//render right thing, menu, engine:))
+	void whatToDo();
+
+
+};
